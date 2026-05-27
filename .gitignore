@@ -4,5 +4,6 @@ __pycache__/
 node_modules/
 .venv/
 venv/
-output/full_mix.wav
-output/ai_rap.wav
+output/*.wav
+output/*.mp3
+*.pyc
