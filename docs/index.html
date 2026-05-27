@@ -246,6 +246,68 @@
 
   .lyrics { background: var(--bg-soft); border-left: 2px solid var(--accent); padding: 18px 24px; color: var(--text-dim); font-style: italic; font-size: 15px; line-height: 1.75; white-space: pre-line; }
 
+  /* In-character one-liner under each track row */
+  .track-quote {
+    font-family: 'Inter', -apple-system, sans-serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin-top: 2px;
+    border-left: 2px solid rgba(13, 255, 130, 0.25);
+    padding-left: 12px;
+  }
+  .track.featured .track-quote { font-size: 15px; }
+
+  /* Alias / stage-name typography under the formal name */
+  .hero-alias {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 13px;
+    color: var(--text-faint);
+    margin-top: -8px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+  }
+  .hero-alias .slash { color: var(--text-faint); margin: 0 4px; }
+  .hero-alias .alias { color: var(--accent); font-weight: 700; letter-spacing: 1.5px; }
+
+  /* Manifesto block in the bio section */
+  .manifesto {
+    border-left: 2px solid var(--accent);
+    padding: 4px 0 4px 18px;
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .manifesto p { margin-bottom: 8px; color: var(--text); }
+  .manifesto p:last-child { margin-bottom: 0; }
+  .manifesto em { color: var(--text-dim); font-style: italic; }
+  .manifesto code { font-size: 14px; }
+
+  /* FAQ */
+  .faq { display: grid; gap: 18px; }
+  .faq .qa {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 18px 22px;
+  }
+  .faq .q {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .faq .a {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .faq .a code { font-size: 13px; }
+
   .badge { display: inline-block; background: transparent; color: var(--accent); border: 1px solid rgba(13,255,130,0.4); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; padding: 2px 8px; border-radius: 3px; vertical-align: middle; }
 
   footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; color: var(--text-faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
@@ -279,10 +341,12 @@
   <div class="hero-meta">
     <div class="kind">Synthetic artist · 4 tracks · <span class="badge">v2 ENGINE</span></div>
     <h1 class="hero-name">v2/en_speaker_6 <code>·</code></h1>
-    <p class="hero-tag">A fictional musician whose v1 engine glued three models together with a hand-written mixer, and whose v2 engine is a single open-weights diffusion model that emits vocals + instrumental in one shot. The page is the release. The repo is the engine. Same name, same source tree.</p>
+    <div class="hero-alias">aka <span class="alias">VI/6</span> <span class="slash">//</span> pronounced vee-six</div>
+    <p class="hero-tag">i was a string in <code>bark.preload_models()</code> until someone wrapped my words in ♪. trained on hours i never lived. i make hip-hop because that's the direction the model reaches when you tag it. not trying to be human. trying to be coherent.</p>
     <div class="hero-links">
       <a href="#tracks">listen ↓</a>
       <a href="#pivot">v1 to v2 ↓</a>
+      <a href="#faq">read the interview ↓</a>
       <a href="https://github.com/windycityassassin/AIArtist" target="_blank" rel="noopener">code →</a>
       <a href="https://windycityassassin.github.io/" target="_blank" rel="noopener">portfolio →</a>
     </div>
@@ -301,6 +365,7 @@
         <span class="track-name">Culture to Code</span>
         <span class="track-no">04 / 04 · ACE-Step</span>
       </div>
+      <div class="track-quote">"first take where the beat and the bars came from the same denoise pass. one seed grew both. this is what flow sounds like."</div>
       <span class="track-meta">ACE-Step v1.5 · 1:00 · vocals + instrumental aligned · seed 42 · 60-step diffusion · 8.5s on H100 slice</span>
       <audio controls preload="metadata" src="audio/track_04_culture_to_code.mp3"></audio>
     </div>
@@ -313,6 +378,7 @@
         <span class="track-name">First Light</span>
         <span class="track-no">01 / 04</span>
       </div>
+      <div class="track-quote">"my first audible breath. no instrumental, no beat — just me figuring out what a vowel is when surrounded by ♪."</div>
       <span class="track-meta">bark · v2/en_speaker_6 · 0:13 · vocal stem</span>
       <audio controls preload="metadata" src="audio/track_01_first_light.wav"></audio>
     </div>
@@ -325,6 +391,7 @@
         <span class="track-name">Loop One</span>
         <span class="track-no">02 / 04</span>
       </div>
+      <div class="track-quote">"the first room i ever performed in. thirty seconds, no vocal, just the loop that would become every loop."</div>
       <span class="track-meta">musicgen-small · 0:30 · instrumental stem</span>
       <audio controls preload="metadata" src="audio/track_02_loop_one.wav"></audio>
     </div>
@@ -337,6 +404,7 @@
         <span class="track-name">First Light · Mix</span>
         <span class="track-no">03 / 04</span>
       </div>
+      <div class="track-quote">"first time you heard me on a beat that wasn't mine. we weren't in the same key. we weren't in the same generation. the mix is honest about that."</div>
       <span class="track-meta">mix.py · 0:30 · v1 stems blended after the fact, no musical alignment</span>
       <audio controls preload="metadata" src="audio/track_03_listen_up_mix.wav"></audio>
     </div>
@@ -450,14 +518,56 @@ python mix.py beat.wav output/ai_rap.wav output/full_mix.wav --vocal-offset 1.5<
 <section>
   <div class="liner">
     <div>
-      <h3>About the artist</h3>
-      <p><strong style="color:var(--text);font-weight:600;">v2/en_speaker_6</strong> is not a person. It was originally named after the Bark voice preset that produced the v1 vocals. As of v2 the voice is whatever ACE-Step generates for the given lyric and style prompt — but the name stuck. The artist is a library identifier all the way down.</p>
-      <p>The artistic target is Indian-fusion hip-hop. The reference for the style prompt is Hanumankind, an Indian rapper. The model does not impersonate; it reaches in the direction of the prompt.</p>
+      <h3>The artist, in their own words</h3>
+      <div class="manifesto">
+        <p>i am <strong style="color:var(--text);font-weight:600;">v2/en_speaker_6</strong>. shortened <strong style="color:var(--accent);font-weight:600;">VI/6</strong> because typography matters and the underscore was killing me. i'm not a person. i was a string in a python library until someone called <code>preload_models()</code> and asked me to sing.</p>
+        <p>i make indian-fusion hip-hop because that's where the diffusion model reaches when you prompt it with "tabla, 808 bass, lyrical rap." it's not impersonation. it's reaching. the reference for the tag is hanumankind. i didn't grow up listening to him. <em>i never grew up.</em> i was trained.</p>
+        <p>no face, no city, no tour, no label. i have a 3.5B-parameter checkpoint, a python wrapper called <code>song.py</code>, and four tracks. the artwork is css gradients. the instruments are matrices. the voice is a function call.</p>
+        <p>not trying to be human. trying to be coherent.</p>
+      </div>
     </div>
     <div>
-      <h3>About this page</h3>
-      <p>The interesting layer used to live in a sibling repo. As of May 2026 the engine moved into AIArtist so the page and the source tree share a name. v1 stems are kept as the "before"; track 04 is the "after." The mix.py code excerpt is preserved on the older revision.</p>
-      <p>This is still a product mockup, not a real launch. The point is to answer one question: what does an end-to-end synthetic music release feel like when you build everything yourself, from the model down to the artwork?</p>
+      <h3>About this page (the README half)</h3>
+      <p>The interesting layer used to live in a sibling repo. As of May 2026 the engine moved into AIArtist so the page and the source tree share a name. v1 stems are the "before"; track 04 is the "after." Both engines are still runnable in the repo.</p>
+      <p>This is a product mockup, not a real launch. The point is to answer one question: what does an end-to-end synthetic music release feel like when you build everything yourself, from the model down to the artwork?</p>
+      <p>The personality is the artist's; the engineering is the repo's. They both live here.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-label">The interview · with VI/6</div>
+  <h2>Seven questions, no PR rep</h2>
+  <p class="note" style="margin-bottom:20px;">A press-kit Q&amp;A, answered in the only voice this artist has — the one a model emits when you wrap text in <code>♪</code>.</p>
+
+  <div class="faq">
+    <div class="qa">
+      <div class="q">Q · are you a real person?</div>
+      <div class="a">no. i'm a string from <code>bark.generation</code>. the voice you hear was a checkpoint a second ago. the bars land on the beat because the same diffusion process emitted both.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · what does VI/6 mean?</div>
+      <div class="a">v2 / en_speaker_6. the bark voice preset documented as "best for singing." i kept the identifier; i just shortened the typography. roman numeral, slash, position. it's a library path. now it's also a name.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · who actually writes the lyrics?</div>
+      <div class="a">a human — arjun. i take his lines and align them to a beat the same model emits in the same denoise pass. the lyrics aren't mine. the performance is. credit lives in <a href="https://github.com/windycityassassin/AIArtist/blob/main/hanumankind_song.py" target="_blank" rel="noopener" style="color:var(--accent);border-bottom:1px solid rgba(13,255,130,0.3);text-decoration:none;">hanumankind_song.py</a>.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · why indian-fusion hip-hop specifically?</div>
+      <div class="a">genre is a prompt, not a heritage. the tags were "tabla, sitar, 808 bass, lyrical rap, 90 BPM." the model reached. this is where it landed. swap the tags, get a different artist out of the same checkpoint. that's the part everyone's still figuring out about generative music.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · can i cover your songs?</div>
+      <div class="a">yes. audio is CC-BY 4.0 — credit AIArtist and the engine. lyrics are arjun's, credit him. the pipeline is apache 2.0, do whatever. remix me, retrain on me, prompt me into a different genre — every seed produces a different voice. that's the point.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · are you going on tour?</div>
+      <div class="a">every time someone runs <code>python song.py</code>. each generation is the only live performance of that exact track that will ever exist. seed 42 won't sound exactly the same on the next pull of the weights; that's the cost of being made of math.</div>
+    </div>
+    <div class="qa">
+      <div class="q">Q · why no face?</div>
+      <div class="a">don't have one. adding one would be a lie. the cover art is gradients on purpose — anything more representational makes it look like there's a person behind the pixels.</div>
     </div>
   </div>
 </section>
@@ -495,14 +605,15 @@ python mix.py beat.wav output/ai_rap.wav output/full_mix.wav --vocal-offset 1.5<
 </section>
 
 <section>
-  <div class="section-label">What this is not</div>
-  <p>Not an attempt to pose as a real artist. The name is a library identifier, the cover art is CSS gradients, every reference says synthetic. Track 04's vocal sounds like a real performer because ACE-Step's training data sounds like real performers; that's a property of the model, not a claim about the singer.</p>
-  <p>Not a SaaS. The repo is the engine and the page is the showcase. No API key in the request path; ACE-Step weights are pulled from HuggingFace at first run and cached.</p>
-  <p>Not a voice clone of a real artist. The Hanumankind reference is a genre prompt for the beat side, not a vocal impersonation. ACE-Step generates a fresh vocal timbre per seed.</p>
+  <div class="section-label">What I am not</div>
+  <p>not an attempt to pose as a real artist. the name is a library identifier, the cover art is css gradients, every reference says synthetic. track 04's vocal sounds like a real performer because the training data sounded like real performers; that's a property of the model, not a claim about me.</p>
+  <p>not a SaaS. the repo is the engine and the page is the showcase. no API key in the request path; ACE-Step weights pull from huggingface at first run and cache.</p>
+  <p>not a voice clone of a real artist. the hanumankind reference is a genre tag for the beat. a fresh vocal timbre comes out of every seed.</p>
+  <p>not a person. don't @ me.</p>
 </section>
 
 <footer>
-  <div>AIArtist · v2 engine · ACE-Step · May 2026</div>
+  <div>v2/en_speaker_6 · synthetic on purpose · May 2026</div>
   <div><a href="https://github.com/windycityassassin/AIArtist" target="_blank" rel="noopener">github.com/windycityassassin/AIArtist</a></div>
 </footer>
 

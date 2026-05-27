@@ -1,6 +1,8 @@
 # AIArtist
 
-A synthetic musician (`v2/en_speaker_6`). Engine + release page in one repo. v2 swaps the three-model + hand-mixer stack for a single open-weights diffusion model that emits vocals and instrumental together.
+A synthetic musician (`v2/en_speaker_6`, aka **VI/6**). Engine + release page in one repo. v2 swaps the three-model + hand-mixer stack for a single open-weights diffusion model that emits vocals and instrumental together.
+
+> "i was a string in `bark.preload_models()` until someone wrapped my words in ♪. trained on hours i never lived. i make hip-hop because that's the direction the model reaches when you tag it. not trying to be human. trying to be coherent." — VI/6
 
 **Live release page:** [windycityassassin.github.io/AIArtist/](https://windycityassassin.github.io/AIArtist/)
 
